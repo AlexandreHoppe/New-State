@@ -1,0 +1,168 @@
+trigger NewState on Opportunity (before insert, before update) {
+	List<Opportunity> stateList = [SELECT Id, Listing_Property_State__c FROM Opportunity];
+    List<string> listChecker = new List<String>{'AL', 'AK', 'AZ','AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'};
+		
+        For(Opportunity s : Trigger.new){
+            if(s.Listing_Property_State__c != null ){
+            string valueToString = String.valueOf(s.Listing_Property_State__c);
+            s.Listing_Property_State__c = valueToString.toUpperCase();
+                switch on s.Listing_Property_State__c{
+                    when 'AL'{
+                        s.Listing_Property_State__c = 'Alabama';
+                    }
+                    when 'AK'{
+                        s.Listing_Property_State__c = 'Alaska';
+                    }
+                    when 'AZ'{
+                        s.Listing_Property_State__c = 'Arizona';
+                    }
+                    when 'AR'{
+                        s.Listing_Property_State__c = 'Arkansas';
+                    }
+                    when 'CA'{
+                        s.Listing_Property_State__c = 'California';
+                    }
+                    when 'CO'{
+                        s.Listing_Property_State__c = 'Colorado';
+                    }
+                    when 'CT'{
+                        s.Listing_Property_State__c = 'Connecticut';
+                    }
+                    when 'DE'{
+                        s.Listing_Property_State__c = 'Delaware';
+                    }
+                    when 'FL'{
+                        s.Listing_Property_State__c = 'Florida';
+                    }
+                    when 'GA'{
+                        s.Listing_Property_State__c = 'Georgia';
+                    }
+                    when 'HI'{
+                        s.Listing_Property_State__c = 'Hawaii';
+                    }
+                    when 'ID'{
+                        s.Listing_Property_State__c = 'Idaho';
+                    }
+                    when 'IL'{
+                        s.Listing_Property_State__c = 'Illinois';
+                    }
+                    when 'IN'{
+                        s.Listing_Property_State__c = 'Indiana';
+                    }
+                    when 'IA'{
+                        s.Listing_Property_State__c = 'Iowa';
+                    }
+                    when 'KS'{
+                        s.Listing_Property_State__c = 'Kansas';
+                    }
+                    when 'KY'{
+                        s.Listing_Property_State__c = 'Kentucky';
+                    }
+                    when 'LA'{
+                        s.Listing_Property_State__c = 'Louisiana';
+                    }
+                    when 'ME'{
+                        s.Listing_Property_State__c = 'Maine';
+                    }
+                    when 'MD'{
+                        s.Listing_Property_State__c = 'Maryland';
+                    }
+                    when 'MA'{
+                        s.Listing_Property_State__c = 'Massachusetts';
+                    }
+                    when 'MI'{
+                        s.Listing_Property_State__c = 'Michigan';
+                    }
+                    when 'MN'{
+                        s.Listing_Property_State__c = 'Minnesota';
+                    }
+                    when 'MS'{
+                        s.Listing_Property_State__c = 'Mississippi';
+                    }
+                    when 'MO'{
+                        s.Listing_Property_State__c = 'Missouri	';
+                    }
+                    when 'MT'{
+                        s.Listing_Property_State__c = 'Montana	';
+                    }
+                    when 'NE'{
+                        s.Listing_Property_State__c = 'Nebraska	';
+                    }
+                    when 'NV'{
+                        s.Listing_Property_State__c = 'Nevada';
+                    }
+                    when 'NH'{
+                        s.Listing_Property_State__c = 'New Hampshire';
+                    }
+                    when 'NJ'{
+                        s.Listing_Property_State__c = 'New Jersey';
+                    }
+                    when 'NM'{
+                        s.Listing_Property_State__c = 'New Mexico';
+                    }
+                    when 'NY'{
+                        s.Listing_Property_State__c = 'New York';
+                    }
+                    when 'NC'{
+                        s.Listing_Property_State__c = 'North Carolina';
+                    }
+                    when 'ND'{
+                        s.Listing_Property_State__c = 'North Dakota';
+                    }
+                    when 'OH'{
+                        s.Listing_Property_State__c = 'Ohio';
+                    }
+                    when 'OK'{
+                        s.Listing_Property_State__c = 'Oklahoma';
+                    }
+                    when 'OR'{
+                        s.Listing_Property_State__c = 'Oregon';
+                    }
+                    when 'PA'{
+                        s.Listing_Property_State__c = 'Pennsylvania';
+                    }
+                    when 'RI'{
+                        s.Listing_Property_State__c = 'Rhode Island';
+                    }
+                    when 'SC'{
+                        s.Listing_Property_State__c = 'South Carolina';
+                    }
+                    when 'SD'{
+                        s.Listing_Property_State__c = 'South Dakota';
+                    }
+                    when 'TN'{
+                        s.Listing_Property_State__c = 'Tennessee';
+                    }
+                    when 'TX'{
+                        s.Listing_Property_State__c = 'Texas';
+                    }
+                    when 'UT'{
+                        s.Listing_Property_State__c = 'Utah';
+                    }
+                    when 'VT'{
+                        s.Listing_Property_State__c = 'Vermont';
+                    }
+                    when 'VA'{
+                        s.Listing_Property_State__c = 'Virginia';
+                    }
+                    when 'WA'{
+                        s.Listing_Property_State__c = 'Washington';
+                    }
+                    when 'WV'{
+                        s.Listing_Property_State__c = 'West Virginia';
+                    }
+                    when 'WI'{
+                        s.Listing_Property_State__c = 'Wisconsin';
+                    }
+                    when 'WY'{
+                        s.Listing_Property_State__c = 'Wyoming';
+                    }
+                    when else{
+                        s.Listing_Property_State__c = '';
+                    }
+    
+                }
+            }
+                System.debug(s.Listing_Property_State__c);
+	}
+}

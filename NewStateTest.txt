@@ -1,0 +1,26 @@
+@isTest
+public class NewStateTest {
+	static testMethod void changeState(){
+    	test.StartTest();
+            List<string> listChecker = new List<String>{'AL', 'AK', 'AZ','AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY', 'test'};
+            Integer loopVal = 0;
+                
+        	WHILE (loopval != 51){
+            Opportunity saleList = new Opportunity(
+                Name = 'test',
+                Listing_Property_State__c = listChecker[loopVal],
+                StageName = 'testStage', 
+                CloseDate = date.newInstance(2019, 30, 07)
+            );
+            loopVal = loopVal + 1; 
+            insert saleList;
+                
+            }
+        
+        	
+        
+				        
+        Test.stopTest();
+            
+    }
+}
